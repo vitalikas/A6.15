@@ -10,8 +10,8 @@
     <title>PWS A6 HW</title>
   </head>
   <body>
-
-  <h1>10 квадратов</h1>
+  <div class="container">
+  <h1>Игра "10 квадратов"</h1>
 
       <div class="row">
         <div class="col game-field align-text-bottom" id="slot-11"></div>
@@ -63,14 +63,16 @@
       </div>
 
       <div id="win-message" class="d-none">
-        <h2>Вы нашли 10 зелёных квадратов за: <span id="total-time-played"></span> секунд</h2>
-        <h2>Вы промахнулись: <span id="total-miss-hits"></span> раз(-а)</h2>
+        <h4>Вы нашли 10 <span style="color: green">зелёных квадратов</span> за: <span id="total-time-played"></span> сек</h4>
+        <h4>Всего кликов: <span id="hitsCount" style="color: orange"></span></h4>
+        <h4>Всего промахов: <span id="total-miss-hits" style="color: red"></span></h4>
       </div>
       
       <div class="row">
         <button id="button-start" class="btn btn-primary">Начать</button>
         <button id="button-reload" class="btn btn-primary">Играть заново</button>
       </div>
+    </div>
 
     <script src="./js/jquery-3.4.1.min.js"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>

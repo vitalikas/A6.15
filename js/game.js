@@ -6,7 +6,7 @@ function init() {
   let hits = 0;
   const maxHits = 10;
   let missHits = 0;
-  let firstHitTime = 0;
+  let allHits = 0;
 
   $("#button-reload").hide();
 
@@ -40,22 +40,26 @@ function init() {
   function handleClick(event) {
     if ($(event.target).hasClass("target")) {
       hits++;
+
       $(event.target).removeClass("target");
       $(event.target).text("");
 
       round();
     } else 
       missHits++;
-      $("#total-miss-hits").text(missHits);
   }
 
   function endGame() {
     $(".game-field").hide();
+    $("#win-message").removeClass("d-none");
 
-    let lastHitTime = getTimestamp();
-    let difference = (lastHitTime - firstHitTime) / 1000;
+    lastHitTime = getTimestamp();
+    difference = (lastHitTime - firstHitTime) / 1000;
     $("#total-time-played").text(difference);
 
-    $("#win-message").removeClass("d-none");
+    allHits = hits + missHits;
+    $("#hitsCount").text(allHits);
+
+    $("#total-miss-hits").text(missHits);
   }
 }
