@@ -14,17 +14,19 @@ function init() {
     round();
     $(this).hide();
     $("#button-reload").show();
+    $(".game-field").click(handleClick);
   });
 
   $("#button-reload").click(function() {
     location.reload();
   });
 
-  $(".game-field").click(handleClick);
+  
 
   function round() {
     let divSelector = randomDivId();
     $(divSelector).addClass("target");
+    $(".game-field").removeClass("miss");
 
     targetNum++;
     $(divSelector).text(targetNum);
@@ -45,8 +47,10 @@ function init() {
       $(event.target).text("");
 
       round();
-    } else 
+    } else {
       missHits++;
+      $(event.target).addClass("miss");
+    }
   }
 
   function endGame() {
